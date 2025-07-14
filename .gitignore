@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+.env
+venv/
+.DS_Store # Ignorar para usuarios de macOS
+
+# C++
+*.o               # Archivos objeto compilados
+*.exe             # Ejecutables de Windows
+*.out             # Ejecutables de Linux/macOS
+*.dll             # Librerías dinámicas de Windows
+*.dylib           # Librerías dinámicas de macOS
+
+# Archivos de Bases de Datos y Logs generados
+/data/*.log       # Ignora archivos .log en la carpeta data/
+/data/*.db        # Ignora archivos .db (ej. SQLite) en la carpeta data/
+/data/*.csv       # Opcional: Ignora archivos .csv si son solo para datos de prueba generados
+/data/*.json      # Opcional: Ignora archivos .json si son solo para datos de prueba generados
+
+# Archivos de configuración locales que no deben ir al repo (ej. credenciales sensibles)
+config/db_config.ini # Si este archivo contiene credenciales REALES. ¡MUY IMPORTANTE!
