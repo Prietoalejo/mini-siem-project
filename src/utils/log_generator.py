@@ -1,6 +1,7 @@
 import json
 import datetime
 import random
+import os
 # Tipos de eventos de seguridad comunes
 POSSIBLE_EVENTS = [
     "authentication.success",    # Inicio de sesión exitoso
@@ -147,4 +148,17 @@ def generate_simple_log():
 
     return log
 
-print(generate_simple_log())
+def generate_log_file(num_logs = int):
+    """Metodo para generar archovos en formato tipo JSON donde se almacenaran nuestros LOGS 
+    de seguridad dentro de una lista que contendra diccionarios (JSON) de manera automatica,
+    parametros: num_logs(Tipo de dato entero que sera la cantidad de logs que deseamos generar)
+                output_path(Cadena de texto que sera la direccion en donde se guardan los JSON )
+    Retorna: la actualizacion de los logs en un archivo JSON
+    """
+    out = []
+    for i in range(num_logs):
+        if i<=num_logs:
+            out.append(generate_simple_log())
+    return out
+
+print(generate_log_file(2))
