@@ -1,0 +1,72 @@
+[
+    {
+        "Time-Stamp": "2025-07-18 21:05:14.242948",
+        "IP-origin": "192.168.1.30",
+        "Usuario": "sysadmin",
+        "Evento": "file.access.read",
+        "Detalle": "Acceso a log de auditoría: /var/www/html/index.php por sysadmin."
+    },
+    {
+        "Time-Stamp": "2025-07-18 21:05:14.242989",
+        "IP-origin": "192.168.1.105",
+        "Usuario": "db_user",
+        "Evento": "network.port_scan",
+        "Detalle": "Tráfico de escaneo TCP/SYN inusual en puerto 22 desde 192.168.1.105."
+    },
+    {
+        "Time-Stamp": "2025-07-18 21:05:14.242998",
+        "IP-origin": "192.168.1.176",
+        "Usuario": "svc_account",
+        "Evento": "authentication.success",
+        "Detalle": "Credenciales válidas, acceso concedido a svc_account."
+    },
+    {
+        "Time-Stamp": "2025-07-18 21:05:14.243004",
+        "IP-origin": "192.168.1.80",
+        "Usuario": "web_service",
+        "Evento": "authorization.denied",
+        "Detalle": "Permisos insuficientes para web_service intentando acceder a /var/log/secure."
+    },
+    {
+        "Time-Stamp": "2025-07-18 21:05:14.243009",
+        "IP-origin": "192.168.1.2",
+        "Usuario": "user_dev",
+        "Evento": "admin.config_change",
+        "Detalle": "Cambio en políticas de usuario por user_dev."
+    },
+    {
+        "Time-Stamp": "2025-07-18 21:05:14.243014",
+        "IP-origin": "192.168.1.189",
+        "Usuario": "admin",
+        "Evento": "admin.config_change",
+        "Detalle": "Configuración del firewall modificada por admin."
+    },
+    {
+        "Time-Stamp": "2025-07-18 21:05:14.243018",
+        "IP-origin": "192.168.1.81",
+        "Usuario": "admin",
+        "Evento": "system.startup",
+        "Detalle": "Sistema iniciado en 192.168.1.81."
+    },
+    {
+        "Time-Stamp": "2025-07-18 21:05:14.243023",
+        "IP-origin": "192.168.1.219",
+        "Usuario": "svc_account",
+        "Evento": "authentication.success",
+        "Detalle": "Credenciales válidas, acceso concedido a svc_account."
+    },
+    {
+        "Time-Stamp": "2025-07-18 21:05:14.243030",
+        "IP-origin": "192.168.1.171",
+        "Usuario": "admin",
+        "Evento": "software.update",
+        "Detalle": "Parche de software apache instalado por admin."
+    },
+    {
+        "Time-Stamp": "2025-07-18 21:05:14.243036",
+        "IP-origin": "192.168.1.158",
+        "Usuario": "db_user",
+        "Evento": "software.update",
+        "Detalle": "Parche de software web_app instalado por db_user."
+    }
+]

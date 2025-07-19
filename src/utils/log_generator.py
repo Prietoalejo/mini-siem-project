@@ -2,6 +2,7 @@ import json
 import datetime
 import random
 import os
+
 # Tipos de eventos de seguridad comunes
 POSSIBLE_EVENTS = [
     "authentication.success",    # Inicio de sesión exitoso
@@ -99,7 +100,7 @@ DETAIL_TEMPLATES = {
     ],
     "alert.security_violation": [ # Plantillas para el nuevo tipo de evento de alerta
         "ALERTA DE SEGURIDAD: {user} accedió a archivo sensible {file_path}.",
-        "ACCESO SOSPECHOSO: Usuario '{user}' intentó '{event_type}' en recurso privilegiado.",
+
         "POSIBLE FUERZA BRUTA: Múltiples fallos de autenticación para '{user}' desde '{ip_src}'."
     ]
 }
@@ -138,6 +139,7 @@ def generate_simple_log():
         file_path = s_file_path,
         service_name = s_service_name,
         software_name = s_software_name)
+    
     log= {
         "Time-Stamp": timestamp,
         "IP-origin" : ip_origin,
@@ -148,7 +150,7 @@ def generate_simple_log():
 
     return log
 
-def generate_log_file(num_logs = int):
+def generate_log_file(num_logs = int, output_path = str):
     """Metodo para generar archovos en formato tipo JSON donde se almacenaran nuestros LOGS 
     de seguridad dentro de una lista que contendra diccionarios (JSON) de manera automatica,
     parametros: num_logs(Tipo de dato entero que sera la cantidad de logs que deseamos generar)
@@ -159,6 +161,55 @@ def generate_log_file(num_logs = int):
     for i in range(num_logs):
         if i<=num_logs:
             out.append(generate_simple_log())
-    return out
 
-print(generate_log_file(2))
+    try:
+        # Extraemos el directorio de la ruta del archivo
+        output_directory = os.path.dirname(output_path)
+        
+        print(f"DEBUG: Ruta de salida completa: '{output_path}'")
+        print(f"DEBUG: Directorio de salida detectado: '{output_directory}'")
+
+        # Si hay un directorio especificado (no es la raíz del archivo) y no existe
+        if output_directory and not os.path.exists(output_directory):
+            print(f"DEBUG: El directorio '{output_directory}' NO existe. Intentando crearlo...")
+            os.makedirs(output_directory, exist_ok=True) # exist_ok=True evita error si ya existe
+            print(f"DEBUG: Directorio '{output_directory}' creado.")
+        elif output_directory and os.path.exists(output_directory):
+            print(f"DEBUG: El directorio '{output_directory}' YA existe.")
+        elif not output_directory:
+            print(f"DEBUG: La ruta de salida es un archivo en el directorio actual. No se necesita crear un directorio.")
+
+        print(f"Guardando logs en: {output_path}")
+        with open(output_path, 'w', encoding='utf-8') as file:
+            json.dump(out,file, indent= 4, ensure_ascii=False)
+        print("Logs archivados")
+    except IOError as e:
+        print("--- ¡ERROR CRÍTICO! ---")
+        print(f"No se pudo guardar el archivo '{output_path}'.")
+        print(f"Detalles del error (IOError): {e}")
+        print("Posibles causas: Ruta no existe, permisos insuficientes, o disco lleno.")
+        print("Asegúrate de que la carpeta de destino exista y tengas derechos de escritura.")
+    except Exception as e:
+                # Este bloque captura cualquier otro error inesperado que no sea IOError.
+        print("--- ¡ERROR INESPERADO! ---")
+        print(f"Ocurrió un problema desconocido al intentar guardar los logs.")
+        print(f"Detalles del error (Exception general): {e}")
+
+if __name__ == "__main__":
+    import argparse
+    # 1. Configurar ArgumentParser
+    parser = argparse.ArgumentParser(description="Generador de logs de seguridad simulados.")
+    parser.add_argument("--num_logs", type=int, default=10, # default reducido para pruebas rápidas
+                        help="Número de logs a generar.")
+    parser.add_argument("--output_path", type=str, default="Logs.json",
+                        #Default:Archivo en la raíz del proyecto
+                        help="Ruta del archivo de salida para los logs JSON.")
+
+    # 2. Parsear los argumentos de la línea de comandos
+    args = parser.parse_args()
+
+    # 3. ¡LLAMAR A TU FUNCIÓN PRINCIPAL!
+    #    Aquí es donde tu script cobra vida y ejecuta lo que has construido.
+    print("\n--- INICIO DEL PROCESO DE GENERACIÓN DE LOGS ---")
+    generate_log_file(num_logs=args.num_logs, output_path=args.output_path)
+    print("--- PROCESO DE GENERACIÓN DE LOGS FINALIZADO ---\n")
