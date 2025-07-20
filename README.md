@@ -108,11 +108,11 @@ Esta es la lista de tareas que me he propuesto. A medida que las complete, las m
 
 * [x] **Fase 1: Preparando el Terreno y Dominando Python**
     * [x] Configuración inicial del repositorio Git, `venv` y las dependencias Python.
-    * [ ] **Dominar Diccionarios y JSON en Python:** Necesito ser un experto manipulando estos formatos.
+    * [x] **Dominar Diccionarios y JSON en Python:** Necesito ser un experto manipulando estos formatos.
     * [ ] **Primeros Pasos con Pandas:** Aprender a cargar datos y hacer análisis sencillos.
-    * [ ] **Hacer mi Código a Prueba de Balas:** Implementar manejo de errores y excepciones.
-    * [ ] **¡Tarea Divertida!** Crear `src/utils/log_generator.py` para inventar logs de seguridad.
-    * [ ] **¡Tarea Clave!** Crear `src/core/log_processor_basic.py` para leer y analizar esos logs que genere.
+    * [x] **Hacer mi Código a Prueba de Balas:** Implementar manejo de errores y excepciones.
+    * [x] **¡Tarea Divertida!** Crear `src/utils/log_generator.py` para inventar logs de seguridad.
+    * [x] **¡Tarea Clave!** Crear `src/core/log_processor_basic.py` para leer y analizar esos logs que genere.
 
 * [ ] **Fase 2: Construyendo la Base de Datos (Mi Memoria del SIEM)**
     * [ ] Instalar y configurar PostgreSQL en mi máquina.
@@ -137,8 +137,9 @@ Esta es la lista de tareas que me he propuesto. A medida que las complete, las m
 
 * *Aquí iré poniendo mis notas honestas: si algo fue más difícil de lo esperado, un "¡Eureka!" que tuve, un error que me costó horas o una solución genial que encontré. Esto es para mí, para recordar el camino.*
 * *Por ejemplo, hoy aprendí la importancia del `.gitignore` para no subir mi `venv/` y cómo `pip install` descarga todo de golpe. ¡Increíble!*
-
+* *hablando de la fase un concretamenta hasta ahora he podido programar varios archivos aunque han sido un reto me y he perdido consistencia de la planificacion me acabo de dar cuenta de una verdad en area del desarrollo la BD debio ser mi fase uno lo digo porque al trabajar con datos estaticos e internos primero limita el desarrollo y segundo fuera tenido mas posibilidades.*
 ---
+
 
 ## 📧 **Contacto**
 
